@@ -7,6 +7,5 @@ import groovy.json.JsonOutput
 import java.net.URL
 
 node{
-  sh 'gradle clean'
-  sh 'gradle build'
+  sh 'gradle clean build'
 }
