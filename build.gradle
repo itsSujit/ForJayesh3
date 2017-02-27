@@ -1,0 +1,48 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+compile 'ch.qos.logback:logback-classic:0.5'
+  compile 'dom4j:dom4j:1.6.1'
+  compile 'com.fasterxml.jackson.core:jackson-databind:2.8.4'
+  compile 'com.fasterxml.jackson.core:jackson-annotations:2.8.4'
+  compile 'org.apache.poi:poi:3.10-FINAL'
+  compile 'org.apache.poi:poi-examples:3.10-FINAL'
+  compile 'org.apache.poi:poi-excelant:3.10-FINAL'
+  compile 'org.apache.poi:poi-ooxml:3.10-FINAL'
+  compile 'org.apache.poi:poi-ooxml-schemas:3.10-FINAL'
+  compile 'org.apache.poi:poi-scratchpad:3.10-FINAL'
+  compile 'org.apache.xmlbeans:xmlbeans:2.6.0'
+  compile 'org.hamcrest:java-hamcrest:2.0.0.0'
+  compile 'org.seleniumhq.selenium:selenium-server:2.49.1'
+  compile 'org.testng:testng:6.9.9'
+  compile 'info.cukes:cucumber-testng:1.1.5'
+  compile 'io.rest-assured:rest-assured:3.0.1'
+  compile 'info.cukes:cucumber-jvm-deps:1.0.3'
+  compile 'info.cukes:cucumber-picocontainer:1.1.1'
+  compile 'info.cukes:cucumber-java:1.1.1'
+  compile 'commons-io:commons-io:2.4'
+  compile group: 'info.cukes', name: 'cucumber-java8', version: '1.2.2'
+  compile 'junit:junit:4.12'
+}
+
+task cucumber() {
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+             main = "cucumber.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--glue', 'gradle.cucumber', 'src/test/resources']
+        }
+    }
+}
+task wrapper(type: Wrapper) {
+  gradleVersion = '3.1'
+
+}
