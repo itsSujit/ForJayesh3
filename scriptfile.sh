@@ -1,5 +1,5 @@
 #!/bin/sh
-mkdir /home/adzadmin/test/$(date +%Y%m%d)
-mv /home/adzadmin/test/gatewayserv*.zip /home/adzadmin/test/$(date +%Y%m%d)/
-cd /home/adzadmin/test/$(date +%Y%m%d)
+mkdir /home/adzadmin/test/${BUILD_NUMBER}
+mv /home/adzadmin/test/gatewayserv*.zip /home/adzadmin/test/${BUILD_NUMBER}/
+cd /home/adzadmin/test/${BUILD_NUMBER}
 unzip gatewayserv-*.zip
