@@ -6,7 +6,7 @@ unzip gatewayserv-*.zip
 if [ $HOSTNAME == "ip-172-30-2-88.ec2.internal" ] 
 then 
     mv /home/adzadmin/test/${BUILD_NUMBER}/dev-application.properties /home/adzadmin/test/${BUILD_NUMBER}/application.properties
-elif [ $HOSTNAME == "ip-172-30-2-206.ec2.internal" ] 
+elif [ $HOSTNAME == "ip-172-30-2-206" ] 
 then 
     mv /home/adzadmin/test/${BUILD_NUMBER}/test-application.properties /home/adzadmin/test/${BUILD_NUMBER}/application.properties
 elif [ $HOSTNAME== "ip-172-30-2-82.ec2.internal" ]
