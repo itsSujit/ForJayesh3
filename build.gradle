@@ -53,12 +53,24 @@ plugins {
 ssh.settings {
   dryRun = project.hasProperty('dryRun')
 }
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'org.hidetake:gradle-ssh-plugin:x.y.z'
+    classpath 'org.codehaus.groovy:groovy-backports-compat23:2.4.6'
+  }
+}
+
+apply plugin: 'org.hidetake.ssh'
 remotes {
   dev {
     role 'devservers'
     host = '172.30.2.88'
     user = 'adzadmin'
     identity = file('/var/lib/jenkins/.ssh/id_rsa')
+  }
   }
   task reload {
   doLast {
