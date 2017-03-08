@@ -4,7 +4,7 @@ mv /home/adzadmin/test/gatewayserv*.zip /home/adzadmin/test/${BUILD_NUMBER}/
 cd /home/adzadmin/test/${BUILD_NUMBER}
 unzip gatewayserv-*.zip
 
-if [ $HOSTNAME == $dev_hostname ] 
+if [ $HOSTNAME == $dev ] 
 then 
     mv /home/adzadmin/test/${BUILD_NUMBER}/dev-application.properties /home/adzadmin/test/${BUILD_NUMBER}/application.properties
 else
