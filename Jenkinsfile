@@ -1,5 +1,4 @@
 node{
-def abc= BUILD_ID
 env.dev= 'adzadmin@172.30.2.88'
 env.test= 'adzadmin@172.30.2.206'
 env.dev_hostname= 'ip-172-30-2-88.ec2.internal'
