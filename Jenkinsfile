@@ -5,7 +5,6 @@ env.dev_hostname= 'ip-172-30-2-88.ec2.internal'
 env.test_hostname= 'ip-172-30-2-206'
  checkout scm
 stage "Checkout"
-  git 'https://github.com/itsSujit/ForJayesh3.git'
  echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
 sh 'sed -ie \'s/${BUILD_NUMBER}/\'"${BUILD_ID}"\'/g\' scriptfile.sh'
 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
