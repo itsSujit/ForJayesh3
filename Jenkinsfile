@@ -14,6 +14,16 @@ node {
    stage "Dev server"
    sh 'sed -ie \'s/${dev_env}/\'"${dev_hostname}"\'/g\' scriptfile.sh'
    sh "ssh $dev 'bash -s' < scriptfile.sh"
+   dir('Second_repo') {
+    ws('/data/jenkins/browsertest/Secondrepo') {
+   stage('Browser test') {
+    git credentialsId: '18829a04-8347-4c8e-9737-403e0e7a2723', url: 'git@github.com:ctrlshift/test-harness.git'
+	   sh 'sed -ie 's/test.adzhub.com/dev.adzhub.com/g' /data/jenkins/browsertest/Secondrepo/src/main/resources/ctrlshift.properties'
+    sh "chmod +x ./gradlew"
+    sh "./gradlew clean build runSmokeTests"
+   }
+    }
+   }
    stage "Test server"
    input id: 'Approve', message: 'Approve', ok: 'Yes'
    sh 'sed -ie \'s/${test_env}/\'"${test_hostname}"\'/g\' scriptfile.sh'
