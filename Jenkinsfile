@@ -16,6 +16,6 @@ node {
    sh "ssh $dev 'bash -s' < scriptfile.sh"
    stage "Test server"
    input id: 'Approve', message: 'Approve', ok: 'Yes'
-   sh 'sed -ie \'s/${dev_env}/\'"${dev_hostname}"\'/g\' scriptfile.sh'
-   sh "ssh $dev 'bash -s' < scriptfile.sh"
+   sh 'sed -ie \'s/${test_env}/\'"${test_hostname}"\'/g\' scriptfile.sh'
+   sh "ssh $test 'bash -s' < scriptfile.sh"
   }
