@@ -18,7 +18,4 @@ node {
    input id: 'Approve', message: 'Approve', ok: 'Yes'
    sh 'sed -ie \'s/${dev_env}/\'"${dev_hostname}"\'/g\' scriptfile.sh'
    sh "ssh $dev 'bash -s' < scriptfile.sh"
-   }
   }
- }
-}
