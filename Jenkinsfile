@@ -17,7 +17,7 @@ node{
     dir('Second_repo') {
     ws('/data/jenkins/browsertest/Secondrepo') {
     stage('Browser test') {
-    "sed -ie \'s/dev.adzhub.com/\'test.adzhub.com\'/g\' src/main/resources/ctrlshift.properties"
+    sh "sed -ie \'s/dev.adzhub.com/\'test.adzhub.com\'/g\' src/main/resources/ctrlshift.properties"
     git credentialsId: '18829a04-8347-4c8e-9737-403e0e7a2723', url: 'git@github.com:ctrlshift/test-harness.git'
     sh "chmod +x ./gradlew"
     sh "./gradlew clean build runSmokeTests"
