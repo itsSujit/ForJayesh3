@@ -1,7 +1,7 @@
 node{
-    env.dev= 'adzadmin@172.30.2.88'
+    env.dev= 'adzadmin@172.30.3.91'
     env.test= 'adzadmin@172.30.2.206'
-    env.dev_hostname= 'ip-172-30-2-88.ec2.internal'
+    env.dev_hostname= 'ip-172-30-3-91.ec2.internal'
     env.test_hostname= 'ip-172-30-2-206'
     stage "Checkout"
     checkout scm
