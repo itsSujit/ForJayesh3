@@ -13,7 +13,7 @@ node{
     sh "./gradlew clean build"
     stage "Dev server"
     sh 'sed -ie \'s/${dev_env}/\'"${dev_hostname}"\'/g\' scriptfile.sh'
-    sh "ssh $dev 'bash -s' < scriptfile.sh"
+    sh "ssh -o StrictHostKeyChecking=no $dev 'bash -s' < scriptfile.sh"
     dir('Second_repo') {
     ws('/data/jenkins/browsertest/Secondrepo') {
     stage('Browser test') {
@@ -27,5 +27,5 @@ node{
    stage "Test server"
    input id: 'Approve', message: 'Approve', ok: 'Yes'
    sh 'sed -ie \'s/${test_env}/\'"${test_hostname}"\'/g\' scriptfile.sh'
-   sh "ssh $test 'bash -s' < scriptfile.sh" 
+   sh "ssh -o StrictHostKeyChecking=no $test 'bash -s' < scriptfile.sh"
 }
