@@ -12,7 +12,6 @@ node{
     sh "chmod +x ./gradlew"
     sh "./gradlew clean build"
     stage "Dev server"
-    sh "scp  -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no build/distributions/gatewayserv-*.zip $dev:/home/adzadmin/gatewayserv/"
     sh 'sed -ie \'s/${dev_env}/\'"${dev_hostname}"\'/g\' scriptfile.sh'
     sh "ssh $dev 'bash -s' < scriptfile.sh"
     dir('Second_repo') {
@@ -22,7 +21,7 @@ node{
     sh "chmod +x ./gradlew"
     sh "./gradlew clean build runSmokeTests"
 	   }
-    }
+        }
    }
    stage "Test server"
    input id: 'Approve', message: 'Approve', ok: 'Yes'
