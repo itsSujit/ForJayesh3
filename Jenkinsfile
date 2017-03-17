@@ -21,10 +21,10 @@ node{
     sh "sed -ie 's/test.adzhub.com/dev.adzhub.com/g' src/main/resources/ctrlshift.properties"
     sh "chmod +x ./gradlew"
     steps {
-    "UI Test": {
+    "UI Test" {
         sh "./gradlew clean build runSmokeTests --continue"
          },
-    "API Test": {
+    "API Test" {
          sh "./gradlew clean build runAPITests --continue"            
           }
         }
