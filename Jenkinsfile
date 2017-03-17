@@ -19,7 +19,7 @@ node{
     stage('Browser test') {
     git credentialsId: '18829a04-8347-4c8e-9737-403e0e7a2723', url: 'git@github.com:ctrlshift/test-harness.git'
     sh "chmod +x ./gradlew"
-    sh "./gradlew --continue clean build runSmokeTests"
+    sh "./gradlew --continue clean build runSmokeTests --continue"
 	   }
         }
    }
