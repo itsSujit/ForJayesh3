@@ -23,7 +23,7 @@ node{
     steps {
     "UI Test" {
         sh "./gradlew clean build runSmokeTests --continue"
-         },
+         }
     "API Test" {
          sh "./gradlew clean build runAPITests --continue"            
           }
